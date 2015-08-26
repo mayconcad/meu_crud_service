@@ -19,11 +19,6 @@ public class ArquivoServiceImpl implements ArquivoService {
 	@Inject
 	private ArquivoRepositorio arquivoRepositorio;
 
-	public Arquivo salvar(Arquivo entidade) {
-		entidade.setAtivo(true);
-		return arquivoRepositorio.save(entidade);
-	}
-
 	public Arquivo atualizar(Arquivo entidade) {
 		return arquivoRepositorio.save(entidade);
 	}
@@ -47,4 +42,10 @@ public class ArquivoServiceImpl implements ArquivoService {
 	public void salvarTodos(List<Arquivo> arquivos) {
 		arquivoRepositorio.save(arquivos);
 	}
+
+	public Arquivo salvar(Arquivo entidade) {
+		entidade.setAtivo(true);
+		return arquivoRepositorio.save(entidade);
+	}
+
 }
