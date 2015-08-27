@@ -48,4 +48,8 @@ public class ArquivoServiceImpl implements ArquivoService {
 		return arquivoRepositorio.save(entidade);
 	}
 
+	public List<Arquivo> autocompletar(String valor) {
+		return arquivoRepositorio.autocompletar(valor);
+	}
+
 }
