@@ -11,6 +11,4 @@ public interface ArquivoService {
 
 	public void salvarTodos(List<Arquivo> Arquivos);
 
-	public Arquivo buscarPorDiaMes(byte dia, byte mes);
-
 }

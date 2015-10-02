@@ -29,24 +29,22 @@ public class ArquivoServiceImpl implements ArquivoService {
 	}
 
 	public List<Arquivo> buscar(Map<String, Object> params) {
-
-		return arquivoRepositorio.findAll();
+		params.put("ativo", true);
+		return arquivoRepositorio.buscar(params);
 	}
 
 	public void remover(Arquivo entidade) {
 		entidade.setAtivo(false);
-		arquivoRepositorio.save(entidade);
+		arquivoRepositorio.delete(entidade);
 	}
 
 	public List<Arquivo> autocompletar(Map<String, Object> params) {
-		return null;
+		String valor = params.get("valor") != null ? params.get("valor")
+				.toString() : "";
+		return arquivoRepositorio.autocompletar(valor);
 	}
 
-	public void salvarTodos(List<Arquivo> Arquivos) {
+	public void salvarTodos(List<Arquivo> arquivos) {
+		arquivoRepositorio.save(arquivos);
 	}
-
-	public Arquivo buscarPorDiaMes(byte dia, byte mes) {
-		return null;
-	}
-
 }
